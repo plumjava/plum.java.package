@@ -2,15 +2,6 @@
 import java.io.BufferedReader;
 import plum.http.StaticHttp;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author thbogusz
- */
 public class HelloStaticHttp {
 
     /**
@@ -20,7 +11,7 @@ public class HelloStaticHttp {
 
         String line;
         try {
-            BufferedReader s = StaticHttp.openURL("http://plum.boonum.fr/doku.php");
+            BufferedReader s = StaticHttp.openURL("http://plum.boonum.fr/doku.php?id=personnel:accueil");
             line = s.readLine();
             while (line != null) {
                 System.out.println(line);
