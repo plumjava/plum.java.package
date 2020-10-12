@@ -14,10 +14,12 @@ import plum.console.Clavier;
  */
 public class Form {
 
+    private static String color_histo;
+
     public static String[] show(String leTitre, String[] champ, String data[]) {
         String espace;
         String[] reponse = new String[champ.length];
-        
+
         int i;
 
         String titre = "MESSAGERIE -> " + leTitre;
@@ -47,9 +49,9 @@ public class Form {
                     + Color.WHITE_BACKGROUND + Color.BLUE + item;
 
             reponse[i] = Clavier.lireTexte(item);
-            
-            if ( data!=null & reponse[i].equals("")){
-                reponse[i]=data[i]; // car aucun changement
+
+            if (data != null & reponse[i].equals("")) {
+                reponse[i] = data[i]; // car aucun changement
             }
         }
 
@@ -72,7 +74,7 @@ public class Form {
             // Aucune réponse à retourner
             return null;
         }
-        
+
         return reponse;
 
     }
@@ -82,7 +84,22 @@ public class Form {
                 + Color.WHITE + Color.YELLOW_BACKGROUND
                 + message
                 + Color.BLUE_BACKGROUND + "!!";
-        
+
+        System.out.println(messagef);
+    }
+
+    public static void printList(String message, String color1, String color2) {
+
+        if (color_histo == null) {
+            color_histo = color1;
+        }
+        if (color_histo.equals(color1)) {
+            color_histo = color2;
+        } else {
+            color_histo = color1;
+        }
+
+        String messagef = color_histo + message + Color.RESET;
         System.out.println(messagef);
     }
 }
